@@ -55,9 +55,19 @@ Had an internship at Ahrefs and loved OCaml.
                    (S x -> (even? x)))))
 (* wut *)
 (typerec (foo' (Foo [bar : bar']))
+         (* can't forget datum comments too which are #* *)
+         #*(invalid_code)
          (bar' (Bar [foo : foo'])))
 
 (* TODO: mac and macrec *)
+
+(* all of the defintions above are for toplevel DEFINITIONS, ie let/rec, type/rec, mac/rec. *)
+(* for let/rec EXPRESSIONS, we use a slightly different syntax *)
+(*
+definition: (let (<pattern> <val>)+ ) (* only top level! *)
+expression: (let (<pattern> <val>)+ -> <body> )
+*)
+(let (x 1) -> x)
 
 (even? (S Z))
 ```
