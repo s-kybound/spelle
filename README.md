@@ -33,26 +33,25 @@ Had an internship at Ahrefs and loved OCaml.
       (pair (^ a b))
       (* | represents unions *)
       (peano (|
-             (* ML will treat type constructors as values *)
              (* BTW we reserve capital letters for constructors *)
-             (Z)
+             Z
              (* keep in mind NOT (Z), thats a thunk *)
              (* here S is treated as a*)
              (S [x : peano])))
       (list a -> (|
-                 (Nil)
+                 Nil
                  (Cons [x : a] [xs: (list a)])))
       (bool (|
-            (True)
-            (False))))
+            True
+            False)))
 
 (* letrec exists too *)
 (letrec (even? n -> (match n
                     (Z -> True)
-                    (S x -> (odd? x))))
+                    ((S x) -> (odd? x))))
         (odd? n -> (match n
                    (Z -> False)
-                   (S x -> (even? x)))))
+                   ((S x) -> (even? x)))))
 (* wut *)
 (typerec (foo' (Foo [bar : bar']))
          (* can't forget datum comments too which are #* *)
