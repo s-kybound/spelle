@@ -81,4 +81,22 @@ expression: (let (<pattern> <val>)+ => <body> )
 (let (x 1) => x)
 
 (even? (S Z))
+
+(* unlike most lisps, arithmetic functions such as + are set as 2-ary, with type int -> int -> int *)
+(+ 1 1) (* valid *)
+
+#*(+ 1)
+#*(+)
+#*(+ 1 1 1 1) (* all invalid *)
+
+(* this allows us to use + as a curried function that can be passed to HOFs.
+   but if we really want to get the original variadic +, this is where macros come in! *)
+
++... (* type: (-> (list (code int)) (code int)) *)
+
+(+...) (* -> 0 *)
+(+... 1) (* -> 1 *)
+(+... 1 2 3) (* -> 6 *)
+
+(* how does this black magic work? it converts (+... 1 2 3) into (+ 1 (+ 2 3)) (or some nice tail recursive version, up to implementor)! *)
 ```
