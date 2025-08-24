@@ -1,4 +1,4 @@
-# spelle: a Lisp-like language with ML semantics, user-definable ADTs, pattern matching, typed macros and delimited control
+# spelle: a Lisp-like language with ML semantics
 
 Had an internship at Ahrefs and loved OCaml for how it structures code and makes it easy for me to make programs
 
